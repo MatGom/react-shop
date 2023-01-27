@@ -16,6 +16,11 @@ const Product = props => {
     return basePrice + additionalPrice;
   };
 
+  // const addToCart = e => {
+  //   e.preventDefault();
+  //   console.log('Summary =====');
+  // };
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -68,7 +73,21 @@ const Product = props => {
               ))}
             </ul>
           </div>
-          <Button className={styles.button}>
+          <Button
+            type='button'
+            className={styles.button}
+            onClick={e => {
+              e.preventDefault();
+              console.log('Summary');
+              console.log('=======');
+              console.log('Name:', props.title);
+              console.log(
+                'Price:',
+                getPrice(props.basePrice, props.sizes.find(price => price.name === currentSize).additionalPrice)
+              );
+              console.log('Size:', currentSize);
+              console.log('Color:', currentColor[0].toUpperCase() + currentColor.substr(1).toLowerCase());
+            }}>
             <span className='fa fa-shopping-cart' />
           </Button>
         </form>
