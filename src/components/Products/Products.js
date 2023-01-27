@@ -4,11 +4,11 @@ import Product from '../Product/Product';
 
 const Products = () => {
   const [products] = useState(productsData);
-  
+
   return (
     <section>
       {products.map(product => (
-        <Product key={product.id} {...products[0]} />
+        <Product key={product.id} {...product} />
       ))}
     </section>
   );
