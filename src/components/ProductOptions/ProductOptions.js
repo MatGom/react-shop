@@ -13,22 +13,21 @@ const ProductOptions = ({
   title,
   getPrice,
 }) => {
+  const addToCart = e => {
+    e.preventDefault();
+    console.log('Summary');
+    console.log('=======');
+    console.log('Name:', title);
+    console.log('Price:', getPrice());
+    console.log('Size:', currentSize);
+    console.log('Color:', currentColor[0].toUpperCase() + currentColor.substr(1).toLowerCase());
+  };
+
   return (
     <form>
       <OptionSize sizes={sizes} currentSize={currentSize} setCurrentSize={setCurrentSize} />
       <OptionColor colors={colors} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <Button
-        type='button'
-        className={styles.button}
-        onClick={e => {
-          e.preventDefault();
-          console.log('Summary');
-          console.log('=======');
-          console.log('Name:', title);
-          console.log('Price:', getPrice());
-          console.log('Size:', currentSize);
-          console.log('Color:', currentColor[0].toUpperCase() + currentColor.substr(1).toLowerCase());
-        }}>
+      <Button type='button' className={styles.button} onClick={addToCart}>
         <span className='fa fa-shopping-cart' />
       </Button>
     </form>
